@@ -81,7 +81,7 @@
   white-space: pre-wrap;
 }
 .note-editor q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
+  quotes: "\201C" "\201D" "\2018" "\2023";
 }
 .note-editor small {
   font-size: 80%;

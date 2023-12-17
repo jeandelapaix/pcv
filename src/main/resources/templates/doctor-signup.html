@@ -19,7 +19,14 @@
 								</div>
 								<form class="form-horizontal" method="post"
 									th:action="@{/signup}" th:object="${user}">
+									<div class="form-group">
 
+										<input type="text" class="form-control"
+											   th:value="${user.docCode}" name="docCode" required="required"
+											   id="inputDocCOde" placeholder="Doctor's Code" />
+										<span class="text-danger"
+											  th:if="${#fields.hasErrors('docCode')}" th:errors="*{docCode}">Doctor Code Error</span>
+									</div>
 
 									<div class="form-group">
 

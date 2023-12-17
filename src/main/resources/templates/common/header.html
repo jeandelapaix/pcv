@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://w3.org/1999/xhtml">
 <head th:fragment="common-header">
-   <title>TMS</title>
+   <title>PCV</title>
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600'
 	rel='stylesheet' type='text/css' />
@@ -70,7 +70,7 @@
 				</a>
 			</div>
 			<div class="logo-box">
-								<a th:href="@{dashboard}" class="logo-text"><span>WYS</span></a>
+								<a th:href="@{dashboard}" class="logo-text"><span>PCV Care</span></a>
 
 			</div>
 			<!-- Logo Box -->
@@ -113,8 +113,7 @@
 
 									</ul>
 								</li>
-								<li class="drop-all"><a th:href="@{/announcement}"
-									class="text-center">Notifications</a></li>
+
 							</ul></li>
 						<li class="dropdown"><a href="#"
 							class="dropdown-toggle waves-effect waves-button waves-classic"
@@ -171,11 +170,10 @@
 						class="menu-icon glyphicon glyphicon-plus"></span>
 						<p>Create</p> <span class="arrow"></span></a>
 					<ul class="sub-menu">
-
-						<li><a th:href="@{/createProject}" >Project</a></li>
-						
-						<li><a th:href="@{/createTask}" >Task</a></li>
-						<li><a th:href="@{/announcement}" >Announcement</a></li>
+						<li><a th:href="@{/doctor/create}" >Doctor</a></li>
+						<li><a th:href="@{/doctor-schedules/create}" >Doctor Schedule</a></li>
+						<li th:if="${#strings.contains(userRoles,'ROLE_ADMIN')}"><a th:href="@{/patients/create}" >Patient</a></li>
+						<li th:if="${#strings.contains(userRoles,'ROLE_ADMIN')}"><a th:href="@{/appointments/create}" >Appointment</a></li>
 					</ul></li>
 
 
@@ -183,12 +181,12 @@
 					class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-eye-open"></span>
 						<p>View</p> <span class="arrow"></span></a>
 					<ul class="sub-menu">
-						<li><a th:href="@{/projects}" >Projects</a></li>
 						<li th:if="${#strings.contains(userRoles,'ROLE_ADMIN')}"><a th:href="@{/users}" >Users</a></li>
-						<li><a th:href="@{/tasks}" >Tasks</a></li>
-						<li><a th:href="@{/todo}" >My Todo List</a></li>
-						<li><a th:href="@{/report}" th:if="${#strings.contains(userRoles,'ROLE_ADMIN')}">Report</a></li>
-						
+						<li><a th:href="@{/doctors}" >Doctors</a></li>
+						<li><a th:href="@{/doctor-schedules/create}" >Doctor Schedules</a></li>
+						<li><a th:href="@{/appointments}" >Appointments</a></li>
+						<li th:if="${#strings.contains(userRoles,'ROLE_ADMIN')}"><a th:href="@{/patients}" >Patients</a></li>
+						<li><a href="#" >Visit</a></li>
 					</ul></li>
 
 				<li class="droplink"><a href="#"

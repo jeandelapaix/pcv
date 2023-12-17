@@ -37,14 +37,14 @@
 			<div class="row">
 
 
-				<div class="col-lg-5 col-md-6" th:each="list :${projectList}">
+				<div class="col-lg-5 col-md-6" th:each="list :${doctorList}">
 					<div class="panel info-box panel-white">
 						
 						<div class="panel-body">
 							<div class="info-box-stats">
 
-								<p> <a th:href="@{/project/view/details(projectId= ${list.id})}" th:text="${list.name}"></a></p>
-								<span class="info-box-title"> Progress 43%</span>
+								<p> <span th:text="${list.firstName +' '+ list.lastName}"></span></p>
+								<span class="info-box-title"> Registered as <span th:text="${list.specialization}"></span></span>
 								
 							</div>
 							<a href="javascript:void(0);" data-toggle="tooltip"
@@ -67,15 +67,13 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="weather-top">
-											<h3 style="float: right"  th:text="${list.owner}">
-											</h3> <h3 style="float: right">Owner: &nbsp; </h3>
+											<h3 style="float: right"  th:text="${list.email}">
+											</h3> <h3 style="float: right">Email: &nbsp; </h3>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<ul class="list-unstyled weather-info">
-											<li>All tasks <span class="pull-right" th:text="${list.tasks.size()}"><b> </b></span></li>
-											<li>Number of task Completed <span class="pull-right" th:text="${list.tasks.size() - list.tasks.size()}"><b></b></span></li>
-											<li>Start date <span class="pull-right" th:text="${list.startTime}"><b></b></span></li>
+											<li>Phone <span class="pull-right" th:text="${list.phoneNumber}"><b> </b></span></li>
 										</ul>
 									</div>
 								</div>
